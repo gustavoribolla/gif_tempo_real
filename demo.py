@@ -63,12 +63,12 @@ def run():
         Xd = Xd.astype(int)
         C = C.astype(int)
 
-        filtro = (C[0,:] >= 0) & (C[0,:] < image.shape[0]) & (C[1,:] >= 0) & (C[1,:] < image.shape[1])
+        filtro = (C[0,:] >= 0) & (C[0,:] < width) & (C[1,:] >= 0) & (C[1,:] < height)
         Xd = Xd[:,filtro]
         C = C[:,filtro]
 
-        Xd[0,:] = np.clip(Xd[0,:], 0, image.shape[0])
-        Xd[1,:] = np.clip(Xd[1,:], 0, image.shape[1])
+        Xd[0,:] = np.clip(Xd[0,:], 0, width)
+        Xd[1,:] = np.clip(Xd[1,:], 0, height)
 
         image_[Xd[0,:], Xd[1,:], :] = image[C[0,:], C[1,:], :]
 

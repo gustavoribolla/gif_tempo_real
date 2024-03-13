@@ -16,8 +16,8 @@ def run():
 
     # Aqui, defino a largura e a altura da imagem com a qual quero trabalhar.
     # Dica: imagens menores precisam de menos processamento!!!
-    width = 320
-    height = 240
+    width = 480
+    height = 640
     theta = 0
     vel = 0.05
 
@@ -47,7 +47,7 @@ def run():
         Xd = criar_indices(0, width, 0, height)
         Xd = np.vstack ((Xd,np.ones(Xd.shape[1])))
 
-        T = np.array([[1, 0, -160], [0, 1, -120], [0, 0, 1]]) 
+        T = np.array([[1, 0, - (width/2)], [0, 1, - (height/2)], [0, 0, 1]]) 
 
         # Definindo o ângulo e a matriz
         theta += vel

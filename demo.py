@@ -20,7 +20,7 @@ def run():
     height = 640
     theta = 0
     vel = 0.05
-    D = np.array([[1, 0,0], [0, 1,0],[0,0,1] ])
+    D = np.array([[1,0,0], [0,1,0],[0,0,1]])
 
     # Talvez o programa não consiga abrir a câmera. Verifique se há outros dispositivos acessando sua câmera!
     if not cap.isOpened():
@@ -61,7 +61,6 @@ def run():
         
         #Apertar tecla 'c' para contrair a imagem
         if key == ord('c'):
-
             D = np.array([[0.5, 0,0], [0, 0.5,0],[0,0,1] ])
         
         #Apertar tecla 'e' para expandir a imagem
@@ -70,8 +69,11 @@ def run():
 
         #Apertar 'v' para aumentar a velocidade
         if key == ord('v'):
-            vel *= 1.5
+            vel *= 1.3
 
+        # Se aperto 'q', encerro o loop
+        if key == ord('q'):
+            break
 
         B = T_ @ A @ D @ T
         C = np.linalg.inv(B) @ Xd
@@ -88,18 +90,10 @@ def run():
 
         image_[Xd[0,:], Xd[1,:], :] = image[C[0,:], C[1,:], :]
 
-        
-        
-
         # Agora, mostrar a imagem na tela!
         cv.imshow('Minha Imagem!', image_)
         
         key = cv.waitKey(1)
-        
-        # Se aperto 'q', encerro o loop
-        if key == ord('q'):
-            break
-
 
     # Ao sair do loop, vamos devolver cuidadosamente os recursos ao sistema!
     cap.release()

@@ -15,7 +15,9 @@ O projeto baseia-se na criação de um gif em tempo real, o qual rotaciona a tel
 
 ## Organização:
 
-O código do Gif do projeto foi desenvolvido por completo no arquivo "demo.py", além da criação de um arquivo "requirements.txt" para instalação de bibliotecas. Além dos comentários iniciais, para a melhor organização, a cada processo foi adicionado um comentário de explicação.
+1. Código do Gif do projeto desenvolvido por completo no arquivo "demo.py";
+2. Criação de um arquivo "requirements.txt" para instalação de bibliotecas;
+3. Adição de comentários de explicação ao decorrer do código.
 
 ## Funções e Equações:
 
@@ -32,12 +34,14 @@ O código do Gif do projeto foi desenvolvido por completo no arquivo "demo.py", 
 7. Retorna a matriz idx, que contém todos os índices cartesianos no intervalo especificado.
 
 ### Inicialização:
+
 1. Tamanho da tela definido em 640x480;
 2. $\theta$ inicializado em 0;
 3. Velocidade de aumento começando em 0.05;
 4. Matriz D identidade inicializada.
 
 ### Matrizes:
+
 1. Matriz D:
 Matriz identidade, que é alterada ao clicar "e" ou "c" para expansão e contração, respectivamente;
 
@@ -58,6 +62,9 @@ $$
 4. Matriz B:
 Matriz B definida para cálculo da tela, realizada através da multiplicação das matrizes T, D, A e inversa da T. A multiplicação de T e inversa de T é realizada, pois para rotacionar ao redor de um ponto arbitrário é preciso deslocar esse ponto para a origem (ou seja, realizar uma translação), realizar a rotação e, por último, desfazer a translação. Já a matriz D é multiplicada para a implementação da expansão e contração da imagem.
 
+5. Matriz C:
+Por fim é calculada a matriz C, através da multiplicação da inversa da B com Xd (criada a partir da função "criar_indices"). A multiplicação utiliza a inversa de B para voltar a forma original e realizar a rotação.
+
 ### Filtro, Clip e Artefatos:
 
 Filtro aplicado para que a imagem fique no tamanho da tela, não acessando pixels inexistentes, independete do lado, em conjunto de método "clip" para recorte ideal. Além da remoção de possíveis artefatos para clareza da imagem.
@@ -76,4 +83,5 @@ Filtro aplicado para que a imagem fique no tamanho da tela, não acessando pixel
 1. Código desenvolvido com o auxílio do "Notebook" realizado pelo professor Marcio Fernando Stabile Junior.
 
 ## Equipe:
+
 Projeto desenvolvido por Gustavo Colombi Ribolla e Rafaela Afférri de Oliveira.
